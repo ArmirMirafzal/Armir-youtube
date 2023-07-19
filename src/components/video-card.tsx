@@ -8,7 +8,7 @@ import { IEntity } from "utils/types";
 import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelUrl, demoChannelTitle } from "../utils/constants";
 
 interface VideoCardProps {
-	video: IEntity.Items;
+	video: IEntity.VideoItems;
 }
 
 const VideoCard = ({

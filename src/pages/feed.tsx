@@ -5,10 +5,9 @@ import { Sidebar, Videos } from "components";
 import { Video } from "../services";
 import { IEntity } from "../utils/types";
 
-
 const Feed = () => {
 	const [selectedCategory, setSelectedCategory] = useState("New");
-	const [videos, setVideos] = useState<IEntity.Items[]>([]);
+	const [videos, setVideos] = useState<IEntity.VideoItems[]>([]);
 
 	useEffect(() => {
 		const getData = async () => {

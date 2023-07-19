@@ -3,7 +3,7 @@ import { IEntity } from "utils/types";
 import { VideoCard, ChanelCard } from "./";
 
 interface VideosProps {
-	videos: IEntity.Items[];
+	videos: IEntity.VideoItems[];
 }
 
 const Videos = ({ videos }: VideosProps) => {
@@ -14,7 +14,7 @@ const Videos = ({ videos }: VideosProps) => {
 			{videos.map((item, idx) => (
 				<Box key={idx}>
 					{item.id.videoId && <VideoCard video={item} />}
-					{item.id.channelId && <ChanelCard channelDetail={item} />}
+					{item.id.channelId && <ChanelCard videosinChannel={item} />}
 				</Box>
 			))}
 		</Stack>
