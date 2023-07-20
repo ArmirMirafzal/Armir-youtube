@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, CardContent, CardMedia, Typography } from "@mui/material";
+import CheckCircle from "@mui/icons-material/CheckCircle";
 
-import { IEntity } from "utils/types";
+import { demoProfilePicture } from "utils/constants";
 import { Channel, Video } from "services";
-import ChanelCard from "./../components/chanel-card";
+import { IEntity } from "utils/types";
+import { Videos } from 'components';
 
 const ChanelDetail = () => {
 	const [channelDetail, setChannelDetail] = useState<IEntity.ChannelItems>();
 	const [videosInChannel, setVideosInChannel] = useState<IEntity.VideoItems[]>([]);
 	const { id } = useParams();
 
-	// console.log("ID  =>>> ", id);
+	console.log("ID  =>>> ", id);
 
 	useEffect(() => {
 		const getData = async () => {
 			try {
 				const { data } = await Channel.GetChannel({
-					url: `channels?part=snippet&id=${id}`,
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
+					url: `channels?part=snippet&id=${id}`,
 					part: "snippet,statistics",
-					id: "UCBVjMGOIkavEAhyqpxJ73Dw",
+					id: `${id}`,
 				});
 				const items = data.items;
+				// console.log("channel   =>>>> ", items);
 				setChannelDetail(items[0]);
 			} catch (error) {
 				console.error("channel error => ❌", error);
@@ -36,6 +39,7 @@ const ChanelDetail = () => {
 					maxResults: "50",
 				});
 				const items = data.items;
+				// console.log("videos in channel   =>>>> ", items);
 				setVideosInChannel(items);
 			} catch (error) {
 				console.error("videos in channel error => ❌", error);
@@ -44,8 +48,6 @@ const ChanelDetail = () => {
 
 		getData();
 	}, [id]);
-
-	// console.log("channel =>>>>>>>>>>", channelDetail);
 
 	return (
 		<Box minHeight="95vh">
@@ -57,7 +59,39 @@ const ChanelDetail = () => {
 						zIndex: 10,
 					}}
 				/>
-				{/* <ChanelCard videosinChannel={channelDetail} /> */}
+				<Box
+					sx={{
+						boxShadow: "none",
+						borderRadius: "20px",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						width: { xs: "356px", md: "290px" },
+						height: "326px",
+						margin: "auto",
+					}}
+				>
+					<CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", color: "#fff" }}>
+						<CardMedia
+							image={channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture}
+							sx={{ borderRadius: "50%", height: "180px", width: "180px", mb: 2, border: "1px solid #e3e3e3" }}
+						/>
+						<Typography variant="h6">
+							{channelDetail?.snippet.title}
+							<CheckCircle sx={{ fontSize: 14, color: "gray", ml: "5px", mt: "5px" }} />
+						</Typography>
+						{channelDetail?.statistics?.subscriberCount && (
+							<Typography sx={{ fontSize: "15px", fontWeight: 500, color: "gray" }}>
+								{parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString("en-US")} Subscribers
+							</Typography>
+						)}
+					</CardContent>
+				</Box>
+			</Box>
+
+			<Box p={2} display="flex">
+				<Box sx={{ mr: { sm: "140px", xs: "40px"} }} />
+				<Videos videos={videosInChannel} />
 			</Box>
 		</Box>
 	);

@@ -18,7 +18,7 @@ const Feed = () => {
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					maxResults: "50",
 				});
-				const items = await data.items;
+				const items = data.items;
 				setVideos(items);
 			} catch (error) {
 				console.error(error);

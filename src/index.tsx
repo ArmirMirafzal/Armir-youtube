@@ -10,3 +10,10 @@ root.render(
 		<App />
 	</React.StrictMode>
 );
+
+
+/*
+
+	useparams
+
+*/

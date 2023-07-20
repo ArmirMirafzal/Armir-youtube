@@ -13,8 +13,8 @@ const Videos = ({ videos }: VideosProps) => {
 		<Stack direction="row" flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
 			{videos.map((item, idx) => (
 				<Box key={idx}>
-					{item.id.videoId && <VideoCard video={item} />}
-					{item.id.channelId && <ChanelCard videosinChannel={item} />}
+					{item.id.videoId && <VideoCard video={item} BoxMD="290px" BoxXS="250px" imgSM="320px"/>}
+					{item.id.channelId && <ChanelCard channelDetail={item} />}
 				</Box>
 			))}
 		</Stack>
