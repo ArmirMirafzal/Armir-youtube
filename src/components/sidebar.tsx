@@ -12,6 +12,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
 			direction="row"
 			sx={{
 				overflowY: "auto",
+				zIndex: "-1",
 				height: { sx: "auto", md: "90%" },
 				flexDirection: { md: "column" },
 			}}
@@ -31,9 +32,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
 					>
 						{category.icon}
 					</span>
-					<span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>
-						{category.name}
-					</span>
+					<span style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}>{category.name}</span>
 				</button>
 			))}
 		</Stack>

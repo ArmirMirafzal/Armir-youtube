@@ -11,7 +11,7 @@ export namespace IEntity {
 		width: number;
 	}
 
-	export interface VideoItems{
+	export interface VideoItems {
 		id: IEntity.ID;
 		kind: string;
 		snippet: {
@@ -72,6 +72,53 @@ export namespace IEntity {
 			viewCount: string;
 		};
 	}
+
+	export interface VideoDetailGet {
+		contentDetails: {
+			relatedPlaylists: {
+				likes: string;
+				uploads: string;
+			};
+			caption: string;
+			contentRating: {};
+			definition: string;
+			dimension: string;
+			duration: string;
+			licensedContent: boolean;
+			projection: string;
+		};
+		id: string;
+		kind: string;
+		snippet: {
+			categoryId: string;
+			channelId: string;
+			channelTitle: string;
+			defaultAudioLanguage: string;
+			defaultLanguage: string;
+			description: string;
+			liveBroadcastContent: string;
+			localized: {
+				description: string;
+				title: string;
+			};
+			publishedAt: string;
+			tags: string[];
+			thumbnails: {
+				default: IEntity.Tthumbnails;
+				high: IEntity.Tthumbnails;
+				maxres: IEntity.Tthumbnails;
+				medium: IEntity.Tthumbnails;
+				standard: IEntity.Tthumbnails;
+			};
+			title: string;
+		};
+		statistics: {
+			commentCount: string;
+			favoriteCount: string;
+			likeCount: any;
+			viewCount: any;
+		};
+	}
 }
 
 export namespace IApi {
@@ -106,6 +153,24 @@ export namespace IApi {
 
 			export interface Response {
 				items: IEntity.ChannelItems[];
+			}
+		}
+	}
+
+	export namespace VideoDetail {
+		export namespace GetInVideos {
+			export interface Request extends Params {}
+
+			export interface Params {
+				xRapidAPIKey: string;
+				xRapidAPIHost: string;
+				part: string;
+				url: string;
+				id: string;
+			}
+
+			export interface Response {
+				items: IEntity.VideoDetailGet[];
 			}
 		}
 	}

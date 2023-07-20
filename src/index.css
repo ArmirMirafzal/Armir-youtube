@@ -2,7 +2,6 @@
 	--mainColor: red;
 }
 
-
 html,
 body {
 	margin: 0;
@@ -31,7 +30,7 @@ a {
 }
 
 .category-btn:hover {
-	background: var(--mainColor) ;
+	background: var(--mainColor);
 	color: white !important;
 }
 
@@ -50,6 +49,17 @@ a {
 	width: 350px;
 	background: #0000007e;
 	color: #fff;
+}
+
+.brand-name {
+	color: white;
+	margin-left: 40px;
+	font-family: 'Pangolin', cursive;
+}
+
+.brand-name span {
+	color: red;
+	margin-right: 10px;
 }
 
 .category-btn {

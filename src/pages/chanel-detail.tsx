@@ -6,7 +6,7 @@ import CheckCircle from "@mui/icons-material/CheckCircle";
 import { demoProfilePicture } from "utils/constants";
 import { Channel, Video } from "services";
 import { IEntity } from "utils/types";
-import { Videos } from 'components';
+import { Videos } from "components";
 
 const ChanelDetail = () => {
 	const [channelDetail, setChannelDetail] = useState<IEntity.ChannelItems>();
@@ -18,31 +18,28 @@ const ChanelDetail = () => {
 	useEffect(() => {
 		const getData = async () => {
 			try {
-				const { data } = await Channel.GetChannel({
+				const { data: channel } = await Channel.GetChannel({
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					url: `channels?part=snippet&id=${id}`,
 					part: "snippet,statistics",
 					id: `${id}`,
 				});
-				const items = data.items;
+				const channelItems = channel.items;
 				// console.log("channel   =>>>> ", items);
-				setChannelDetail(items[0]);
-			} catch (error) {
-				console.error("channel error => ❌", error);
-			}
-			try {
-				const { data } = await Video.Suggested({
+				setChannelDetail(channelItems[0]);
+
+				const { data: videos } = await Video.Suggested({
 					url: `search?channelId=${id}&part=snippet%2Cid&order=date`,
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					maxResults: "50",
 				});
-				const items = data.items;
+				const videosItems = videos.items;
 				// console.log("videos in channel   =>>>> ", items);
-				setVideosInChannel(items);
+				setVideosInChannel(videosItems);
 			} catch (error) {
-				console.error("videos in channel error => ❌", error);
+				console.error("error => ❌", error);
 			}
 		};
 
@@ -90,7 +87,7 @@ const ChanelDetail = () => {
 			</Box>
 
 			<Box p={2} display="flex">
-				<Box sx={{ mr: { sm: "140px", xs: "40px"} }} />
+				<Box sx={{ mr: { md: "110px", sm: "140px", xs: "60px" } }} />
 				<Videos videos={videosInChannel} />
 			</Box>
 		</Box>
