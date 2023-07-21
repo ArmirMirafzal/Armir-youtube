@@ -33,7 +33,7 @@ const ChanelDetail = () => {
 					url: `search?channelId=${id}&part=snippet%2Cid&order=date`,
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
-					maxResults: "50",
+					maxResults: 50,
 				});
 				const videosItems = videos.items;
 				// console.log("videos in channel   =>>>> ", items);

@@ -16,7 +16,7 @@ const SearchFeed = () => {
 					url: `search?part=snippet&q=${searchTerm}`,
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
-					maxResults: "50",
+					maxResults: 50,
 				});
 				const items = data.items;
 				setVideos(items);

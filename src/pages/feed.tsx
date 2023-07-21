@@ -13,10 +13,10 @@ const Feed = () => {
 		const getData = async () => {
 			try {
 				const { data } = await Video.Suggested({
-					url: `search?part=snippet&q=${selectedCategory}`,
+					maxResults: 10,
 					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
-					maxResults: "100",
+					url: `search?part=snippet&q=${selectedCategory}`,
 				});
 				const items = data.items;
 				setVideos(items);

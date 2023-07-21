@@ -127,7 +127,7 @@ export namespace IApi {
 			export interface Request extends Params {}
 
 			export interface Params {
-				maxResults: string;
+				maxResults: number;
 				xRapidAPIKey: string;
 				xRapidAPIHost: string;
 				url: string;
