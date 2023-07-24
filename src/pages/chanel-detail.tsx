@@ -2,15 +2,18 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import CheckCircle from "@mui/icons-material/CheckCircle";
+import { Loader } from "@mantine/core";
 
 import { demoProfilePicture } from "utils/constants";
 import { Channel, Video } from "services";
 import { IEntity } from "utils/types";
 import { Videos } from "components";
+import { config } from "../utils/config-armir";
 
 const ChanelDetail = () => {
 	const [channelDetail, setChannelDetail] = useState<IEntity.ChannelItems>();
 	const [videosInChannel, setVideosInChannel] = useState<IEntity.VideoItems[]>([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const { id } = useParams();
 
 	console.log("ID  =>>> ", id);
@@ -19,7 +22,7 @@ const ChanelDetail = () => {
 		const getData = async () => {
 			try {
 				const { data: channel } = await Channel.GetChannel({
-					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
+					xRapidAPIKey: config.EnvKey,
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					url: `channels?part=snippet&id=${id}`,
 					part: "snippet,statistics",
@@ -28,16 +31,18 @@ const ChanelDetail = () => {
 				const channelItems = channel.items;
 				// console.log("channel   =>>>> ", items);
 				setChannelDetail(channelItems[0]);
+				setIsLoading(false);
 
 				const { data: videos } = await Video.Suggested({
 					url: `search?channelId=${id}&part=snippet%2Cid&order=date`,
-					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
+					xRapidAPIKey: config.EnvKey,
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					maxResults: 50,
 				});
 				const videosItems = videos.items;
 				// console.log("videos in channel   =>>>> ", items);
 				setVideosInChannel(videosItems);
+				setIsLoading(false);
 			} catch (error) {
 				console.error("error => ❌", error);
 			}
@@ -45,6 +50,8 @@ const ChanelDetail = () => {
 
 		getData();
 	}, [id]);
+
+	if (!channelDetail && isLoading) return <Loader className="lazy-loader" color="red" size="xl" variant="dots" />;
 
 	return (
 		<Box minHeight="95vh">
@@ -88,7 +95,7 @@ const ChanelDetail = () => {
 
 			<Box p={2} display="flex">
 				<Box sx={{ mr: { md: "110px", sm: "140px", xs: "60px" } }} />
-				<Videos videos={videosInChannel} />
+				<Videos videos={videosInChannel} loading={!isLoading} />
 			</Box>
 		</Box>
 	);

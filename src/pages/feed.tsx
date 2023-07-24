@@ -4,6 +4,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import { Sidebar, Videos } from "components";
 import { Video } from "../services";
 import { IEntity } from "../utils/types";
+import { config } from "../utils/config-armir";
+
 
 const Feed = () => {
 	const [selectedCategory, setSelectedCategory] = useState("New");
@@ -13,8 +15,8 @@ const Feed = () => {
 		const getData = async () => {
 			try {
 				const { data } = await Video.Suggested({
-					maxResults: 10,
-					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
+					maxResults: 50,
+					xRapidAPIKey: config.EnvKey,
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					url: `search?part=snippet&q=${selectedCategory}`,
 				});

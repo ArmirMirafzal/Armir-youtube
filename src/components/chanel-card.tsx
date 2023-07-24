@@ -8,6 +8,7 @@ import { IEntity } from "utils/types";
 
 interface ChanelCardProps {
 	channelDetail: IEntity.VideoItems;
+
 }
 
 const ChanelCard = ({ channelDetail }: ChanelCardProps) => {
@@ -26,7 +27,7 @@ const ChanelCard = ({ channelDetail }: ChanelCardProps) => {
 				margin: "auto",
 			}}
 		>
-			<Link to={`channel/${channelDetail?.id.channelId}`}>
+			<Link to={`/channel/${channelDetail?.id.channelId}`}>
 				<CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "center", textAlign: "center", color: "#fff" }}>
 					<CardMedia
 						image={channelDetail?.snippet?.thumbnails?.high?.url || demoProfilePicture}

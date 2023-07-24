@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Videos } from "components";
 import { Video } from "services";
 import { IEntity } from "utils/types";
+import { config } from "../utils/config-armir";
 
 const SearchFeed = () => {
 	const [videos, setVideos] = useState<IEntity.VideoItems[]>([]);
@@ -14,7 +15,7 @@ const SearchFeed = () => {
 			try {
 				const { data } = await Video.Suggested({
 					url: `search?part=snippet&q=${searchTerm}`,
-					xRapidAPIKey: "e032783f43mshe8aff82b469d74bp151807jsnaa8b1ebd1b19",
+					xRapidAPIKey: config.EnvKey,
 					xRapidAPIHost: "youtube-v31.p.rapidapi.com",
 					maxResults: 50,
 				});
