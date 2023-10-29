@@ -49,5 +49,38 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"devDependencies": {
+		"@types/lodash": "^4.14.198",
+		"@typescript-eslint/eslint-plugin": "^5.31.0",
+		"@typescript-eslint/parser": "^5.31.0",
+		"eslint": "^8.20.0",
+		"eslint-config-airbnb-typescript": "^12.3.1",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-config-react-app": "^7.0.1",
+		"eslint-import-resolver-typescript": "^2.7.1",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-cypress": "^2.12.1",
+		"eslint-plugin-flowtype": "^8.0.3",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jsx-a11y": "^6.6.1",
+		"eslint-plugin-prettier": "^3.4.1",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"eslint-plugin-unused-imports": "^3.0.0",
+		"prettier": "^2.7.1",
+		"prettier-eslint": "^12.0.0",
+		"prettier-eslint-cli": "^5.0.1",
+		"serve": "^14.2.0",
+		"stylelint": "^13.13.1",
+		"stylelint-config-css-modules": "^2.3.0",
+		"stylelint-config-prettier": "^8.0.2",
+		"stylelint-config-rational-order": "^0.1.2",
+		"stylelint-config-standard": "^22.0.0",
+		"stylelint-order": "^4.1.0",
+		"stylelint-prettier": "^1.2.0",
+		"stylelint-scss": "^3.21.0",
+		"ts-jest": "^26.5.6",
+		"use-query-params": "^2.2.1"
+	  }
 }
