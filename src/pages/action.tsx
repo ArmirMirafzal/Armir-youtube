@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoadingOverlay } from "@mantine/core";
+import { Loader } from "@mantine/core";
 import queryString from "query-string";
 
 import { emailVerify } from "modules/auth/service";
@@ -39,7 +39,7 @@ const Action = (props: ActionProps) => {
 
   if (isResetPassword) return <ResetPassword oobCode={oobCode} />;
 
-  return <LoadingOverlay visible overlayBlur={2} />;
+  return <Loader className="lazy-loader1" color="red" size="xl" variant="dots" />;
 };
 
 export default Action;
