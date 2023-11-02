@@ -40,7 +40,7 @@ const Login = () => {
     <Container size={420} my={40}>
       <Paper radius="md" p="xl" withBorder>
         <Text size="lg" weight={500} sx={{ textAlign: "center" }}>
-          Welcome to Chess Game
+          Welcome to Armir-Tube
         </Text>
 
         <Group grow mb="md" mt="md">
