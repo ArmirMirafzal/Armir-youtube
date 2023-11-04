@@ -6,38 +6,38 @@ import { IconButton, Paper } from "@mui/material";
 import { color } from "../utils/constants";
 
 const Searchbar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const navigate = useNavigate();
+	const [searchTerm, setSearchTerm] = useState("");
+	const navigate = useNavigate();
 
-  const onhandleSubmit = (e: any) => {
-    e.preventDefault();
+	const onhandleSubmit = (e: any) => {
+		e.preventDefault();
 
-    if (searchTerm) {
-      navigate(`/search/${searchTerm}`);
+		if (searchTerm) {
+			navigate(`/search/${searchTerm}`);
 
-      setSearchTerm("");
-    }
-  };
+			setSearchTerm("");
+		}
+	};
 
-  return (
-    <Paper
-      component="form"
-      onSubmit={onhandleSubmit}
-      sx={{
-        borderRadius: 20,
-        border: "1px solid #999999",
-        pl: 2,
-        boxShadow: "none",
-        mr: { sm: 2, xs: "40px" },
-        backgroundColor: "#2d2d2d5b",
-      }}
-    >
-      <input className="search-bar" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-      <IconButton type="submit" sx={{ p: "10px", color: color.mainColor }}>
-        <Search />
-      </IconButton>
-    </Paper>
-  );
+	return (
+		<Paper
+			component="form"
+			onSubmit={onhandleSubmit}
+			sx={{
+				borderRadius: 20,
+				border: "1px solid #999999",
+				pl: 2,
+				boxShadow: "none",
+				mr: { sm: 2, xs: "40px" },
+				backgroundColor: "#0000007e",
+			}}
+		>
+			<input className="search-bar" placeholder="Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+			<IconButton type="submit" sx={{ p: "10px", color: color.mainColor }}>
+				<Search />
+			</IconButton>
+		</Paper>
+	);
 };
 
 export default Searchbar;

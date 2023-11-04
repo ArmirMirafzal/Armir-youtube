@@ -12,30 +12,58 @@ import SchoolIcon from "@mui/icons-material/School";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 
-export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
+export const logoIcon = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const color = {
-  mainColor: "blue",
+	mainColor: "#FF0000",
+};
+
+export const styles = {
+	error: {
+		padding: "10px",
+	},
+	input: {
+		backgroundColor: "transparent",
+		WebkitTextFillColor: "#bbb8b8",
+		outline: "none",
+		border: "none",
+		color: "#fff",
+		"&::placeholder": {
+			color: "#fff",
+		},
+	},
+	innerInput: {
+		color: "#fff",
+		"::placeholder": {
+			color: "#fff",
+		},
+	},
+	visibilityToggle: {
+		"&hover": { background: "#fff" },
+	},
+	icon: {
+		"&hover": { background: "transparent" },
+	},
 };
 
 export const categories = [
-  { name: "New", icon: <HomeIcon /> },
-  { name: "JS Mastery", icon: <CodeIcon /> },
-  { name: "Coding", icon: <CodeIcon /> },
-  { name: "ReactJS", icon: <CodeIcon /> },
-  { name: "NextJS", icon: <CodeIcon /> },
-  { name: "Music", icon: <MusicNoteIcon /> },
-  { name: "Education", icon: <SchoolIcon /> },
-  { name: "Podcast", icon: <GraphicEqIcon /> },
-  { name: "Movie", icon: <OndemandVideoIcon /> },
-  { name: "Gaming", icon: <SportsEsportsIcon /> },
-  { name: "Live", icon: <LiveTvIcon /> },
-  { name: "Sport", icon: <FitnessCenterIcon /> },
-  { name: "Fashion", icon: <CheckroomIcon /> },
-  { name: "Beauty", icon: <FaceRetouchingNaturalIcon /> },
-  { name: "Comedy", icon: <TheaterComedyIcon /> },
-  { name: "Gym", icon: <FitnessCenterIcon /> },
-  { name: "Crypto", icon: <DeveloperModeIcon /> },
+	{ name: "New", icon: <HomeIcon /> },
+	{ name: "JS Mastery", icon: <CodeIcon /> },
+	{ name: "Coding", icon: <CodeIcon /> },
+	{ name: "ReactJS", icon: <CodeIcon /> },
+	{ name: "NextJS", icon: <CodeIcon /> },
+	{ name: "Music", icon: <MusicNoteIcon /> },
+	{ name: "Education", icon: <SchoolIcon /> },
+	{ name: "Podcast", icon: <GraphicEqIcon /> },
+	{ name: "Movie", icon: <OndemandVideoIcon /> },
+	{ name: "Gaming", icon: <SportsEsportsIcon /> },
+	{ name: "Live", icon: <LiveTvIcon /> },
+	{ name: "Sport", icon: <FitnessCenterIcon /> },
+	{ name: "Fashion", icon: <CheckroomIcon /> },
+	{ name: "Beauty", icon: <FaceRetouchingNaturalIcon /> },
+	{ name: "Comedy", icon: <TheaterComedyIcon /> },
+	{ name: "Gym", icon: <FitnessCenterIcon /> },
+	{ name: "Crypto", icon: <DeveloperModeIcon /> },
 ];
 
 export const demoProfilePicture = "http://dergipark.org.tr/assets/app/images/buddy_sample.png";

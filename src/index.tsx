@@ -8,25 +8,25 @@ import { Routes } from "routes";
 
 import * as Containers from "containers";
 
-import "./assets/index.css";
+import "./assets/index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 const theme = createTheme();
 
 root.render(
-  <MantineProvider withNormalizeCSS>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Containers.Auth>
-          <Box sx={{ backgroundColor: "#000" }}>
-            <Routes />
-          </Box>
-          <Notifications position="top-right" />
-        </Containers.Auth>
-      </BrowserRouter>
-    </ThemeProvider>
-  </MantineProvider>
+	<MantineProvider withNormalizeCSS>
+		<ThemeProvider theme={theme}>
+			<BrowserRouter>
+				<Containers.Auth>
+					<Box sx={{ backgroundColor: "#000" }}>
+						<Routes />
+					</Box>
+					<Notifications position="top-right" />
+				</Containers.Auth>
+			</BrowserRouter>
+		</ThemeProvider>
+	</MantineProvider>
 );
 
 /*
